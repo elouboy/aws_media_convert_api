@@ -1,0 +1,109 @@
+service: serverless-video-transcoder
+
+frameworkVersion: ">=1.1.0 <2.0.0"
+
+plugins:
+  - serverless-dotenv-plugin
+custom:
+  s3:
+    host: localhost
+    directory: /tmp
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: ${opt:STAGE, self:custom.env.STAGE}
+  region: ${self:custom.env.REGION}
+  memorySize: 1024
+  timeout: 30
+
+  environment:
+    TABLENAME_VIDEOS: ${self:service}-${self:provider.stage}-videos
+    BUCKET_NAME: ${self:service}-${self:provider.stage}-videos
+    TRANSCODED_BUCKET_NAME: ${self:service}-${self:provider.stage}-videos-transcoded
+    LOCAL_DB_PORT: 8009
+
+  apiGateway:
+    binaryMediaTypes:
+      - 'image/*'
+      - 'video/*'
+
+  iamRoleStatements:
+
+  - Effect: Allow
+    Action: execute-api:ManageConnections
+    Resource: arn:aws:execute-api:${self:provider.region}:*:**/@connections/*
+
+  - Effect: Allow
+    Action: lambda:InvokeFunction
+    Resource: arn:aws:lambda:${self:provider.region}:*:function:*
+
+  - Effect: Allow
+    Action:
+      - 's3:*'
+    Resource:
+      Fn::Join:
+      - ""
+      - - "arn:aws:s3:::*"
+
+  - Effect: Allow
+    Action:
+    - elastictranscoder:*
+    - s3:List*
+    - iam:List*
+    - sns:List*
+    Resource: "*"
+
+  - Effect: Allow
+    Action:
+    - logs:CreateLogGroup
+    - logs:CreateLogStream
+    - logs:PutLogEvents
+    Resource: "*"
+
+
+
+functions:
+
+
+  upload:
+    handler: handler.videoUpload
+    events:
+    - http:
+        path: upload/{fileName}
+        method: POST
+        cors: true
+        request:
+          parameters:
+            paths:
+              fileName: true
+
+  convert:
+    handler: handler.videoConvert
+    events:
+      - s3:
+          bucket: ${self:provider.environment.BUCKET_NAME}
+          existing: true
+          event: s3:ObjectCreated:*
+          rules:
+            - suffix: .mp4
+
+
+  test:
+    handler: handler.test
+    events:
+    - http:
+        path: test
+        method: get
+        cors: true
+
+resources:
+  Resources:
+    UploadBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:provider.environment.BUCKET_NAME}
+    TranscodedBucket:
+      Type: AWS::S3::Bucket
+      Properties:
+        BucketName: ${self:provider.environment.TRANSCODED_BUCKET_NAME}

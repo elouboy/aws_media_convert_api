@@ -1,0 +1,93 @@
+[
+  {
+    "challengeId": "03969310-b0e1-11e8-a48b-efa31124d46a",
+    "userId": "1",
+    "description": "Video details 1",
+    "takeOn": 1601552910,
+    "videoPath": "/videos/abc.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064ceb",
+    "userId": "1",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cec",
+    "userId": "1",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064ced",
+    "userId": "2",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cee",
+    "userId": "2",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cef",
+    "userId": "2",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064ceg",
+    "userId": "3",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064ceh",
+    "userId": "3",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cei",
+    "userId": "3",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cej",
+    "userId": "4",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cek",
+    "userId": "4",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cel",
+    "userId": "4",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  },
+  {
+    "challengeId": "09dcd730-e7bb-11ea-b011-676d7a064cem",
+    "userId": "4",
+    "description": "Video details 2",
+    "takeOn": 1601552911,
+    "videoPath": "/videos/xyz.mp4"
+  }
+]
